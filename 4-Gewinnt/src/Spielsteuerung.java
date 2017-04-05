@@ -34,8 +34,14 @@ public class Spielsteuerung {
 			erwarteEingabe();
 			break;
 		case 1: 	//Spieler 1 gewinnt
+			gebeSpielfeld();
+			dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " hat gewonnen!", false);
+			System.exit(0);
 			break;
 		case 2: 	//Spieler 2 gewinnt
+			gebeSpielfeld();
+			dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " hat gewonnen!", false);
+			System.exit(0);
 			break;
 		case 3:		//Unentschieden
 			break;
@@ -43,7 +49,55 @@ public class Spielsteuerung {
 	}
 	
 	//Überprüfung, ob jemand gewinnt
-	private void pruefeGewonnen() {}
+	private void pruefeGewonnen() {
+		int pruefsumme = 4 * derSpieler[aktSpieler].gebeWert();
+		int spalte = 0;
+		int reihe = 0;
+		int diagonale1 = 0;
+		int diagonale2 = 0;
+		
+		//Spalten
+		for(int x = 0; x < 8; x++) {
+			spalte = 0;
+			for(int y = 0; y < 8; y++) {
+				if(y < 4) {
+					spalte += dasSpielfeld.gebeStelle(x, y);
+				}
+				else {
+					spalte += dasSpielfeld.gebeStelle(x, y);
+					spalte -= dasSpielfeld.gebeStelle(x, y - 4);
+				}
+				if(spalte == pruefsumme) {
+					break;
+				}
+			}
+			if(spalte == pruefsumme) {
+				status = aktSpieler + 1;
+				break;
+			}
+		}
+		
+		//Reihen
+		for(int y = 0; y < 8; y++) {
+			reihe = 0;
+			for(int x = 0; x < 8; x++) {
+				if(x < 4) {
+					reihe += dasSpielfeld.gebeStelle(x, y);
+				}
+				else {
+					reihe += dasSpielfeld.gebeStelle(x, y);
+					reihe -= dasSpielfeld.gebeStelle(x - 4, y);
+				}
+				if(reihe == pruefsumme) {
+					break;
+				}
+			}
+			if(reihe == pruefsumme) {
+				status = aktSpieler + 1;
+				break;
+			}
+		}
+	}
 	
 	//Ausgabe des Spielfelds
 	private void gebeSpielfeld() {
@@ -53,7 +107,9 @@ public class Spielsteuerung {
 	
 	//Annahme der Spalte, in der der Spielstein gesetzt werden soll
 	private void erwarteEingabe() {
+		dieOberflaeche.gebeAus(derSpieler[aktSpieler].gebeName() + ": ", false);
 		int rueckgabe = dasSpielfeld.setzeStein(derSpieler[aktSpieler].gebeWert(), dieOberflaeche.leseZahl());	
+		dieOberflaeche.gebeAus("", true);
 		
 		while(rueckgabe == 0 || rueckgabe == 1) {
 			switch(rueckgabe) {

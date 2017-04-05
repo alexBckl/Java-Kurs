@@ -10,9 +10,9 @@ public class Spielfeld {
 	
 	//Operationen
 	public void initialisiere() {
-		for(int x = 0; x < 7; x++) {
+		for(int x = 0; x < 8; x++) {
 			for(int y = 0; y < 8; y++) {
-				feld[x][y] = 1;
+				feld[x][y] = 0;
 			}
 		}
 	}
@@ -41,6 +41,9 @@ public class Spielfeld {
 	}
 	public int[][] gebeFeld() {
 		return feld;
+	}
+	public int gebeStelle(int x, int y) {
+		return feld[x][y];
 	}
 	
 	private void setzeFeld(int wert, int spalte) {
