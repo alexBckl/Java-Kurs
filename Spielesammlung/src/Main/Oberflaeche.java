@@ -1,3 +1,4 @@
+package Main;
 import java.util.Scanner;
 
 public class Oberflaeche {
@@ -19,8 +20,8 @@ public class Oberflaeche {
 	}
 	public void gebeAus(int[][] feld, char spieler1, char spieler2) {
 		char zeichen = ' ';
-		for(int y = 0; y < 3; y++){
-			for(int x= 0; x < 3; x++){
+		for(int y = 7; y >= 0; y--){
+			for(int x= 0; x < 8; x++){
 				switch(feld[x][y]) {
 				case 1:
 					zeichen = spieler1;

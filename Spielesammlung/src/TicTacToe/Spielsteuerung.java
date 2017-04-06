@@ -1,4 +1,6 @@
-public class Spielsteuerung {
+package TicTacToe;
+
+public class Spielsteuerung extends Main.Spielsteuerung {
 	//Attribute
 	private int aktSpieler;
 	private int status;
@@ -7,7 +9,7 @@ public class Spielsteuerung {
 	private Spieler[] derSpieler;
 		
 	//Konstruktor
-	public Spielsteuerung(Oberflaeche dieOberflaeche) {
+	public Spielsteuerung (Oberflaeche dieOberflaeche) {
 		//Instanziierung der Objekte Oberflaeche und Spieler...
 		this.dieOberflaeche = dieOberflaeche;
 		this.dasSpielfeld = new Spielfeld();

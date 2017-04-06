@@ -1,3 +1,6 @@
+package Main;
+import TicTacToe.*;
+import VierGewinnt.*;
 
 public class Main {
 
