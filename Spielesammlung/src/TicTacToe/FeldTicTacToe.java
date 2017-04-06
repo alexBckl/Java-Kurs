@@ -1,28 +1,24 @@
 package TicTacToe;
 
 public class FeldTicTacToe extends Main.Spielfeld{
+	//Attribute
 	boolean unmoeglich = true;
 	
+	//Konstruktor
 	public FeldTicTacToe(){
 		super.feld = new int[3][3];
 		initialisiere();
 	}
 	
-	public void initialisiere(){
+	//Operationen
+	public void initialisiere()							{
 		for(int x = 0; x < 3; x++){
 			for(int y = 0; y < 3; y++){
 				super.feld[x][y] = 0;
 			}
 		}
 	}
-	
-	public int[][] gebeFeld() {
-		return feld;
-	}
-	public int gebeStelle(int x, int y) {
-		return feld[x][y];
-	}
-	public int setzeStein(int wert, int x, int y){
+	public int setzeStein(int wert, int x, int y)		{
 		//Eingabe Prüfen: Muss zwischen 1 und 8 liegen
 		if(x < 0 || x > 2 || y < 0 || y > 2) 
 			return 0;
@@ -45,14 +41,14 @@ public class FeldTicTacToe extends Main.Spielfeld{
 			return 1;		//Wenn Spalte voll ist, dann 1 zurückgeben
 		
 	}
-	
-	
-	public boolean pruefeFeld(int x, int y){
+	public int setzeStein(int wert, int spalte)			{
+		return 0;
+	}
+	public boolean pruefeFeld(int x, int y)				{
 		unmoeglich = (feld[x][y] != 0);
 		return unmoeglich;
 	}	
-	
-	public boolean pruefeVoll(){
+	public boolean pruefeVoll()							{
 		for(int x = 0; x < 3; x++){
 			for(int y = 0; y < 3; y++){
 				if(feld[x][y] == 0){

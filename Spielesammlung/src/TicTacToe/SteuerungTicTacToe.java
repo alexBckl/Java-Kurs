@@ -26,8 +26,6 @@ public class SteuerungTicTacToe extends Main.Spielsteuerung {
 	}
 	
 	//Operationen
-	
-	
 	protected void erwarteEingabe()	{
 		dieOberflaeche.gebeAus(derSpieler[aktSpieler].gebeName() + " ist am Zug! ", true);
 		int rueckgabe = dasSpielfeld.setzeStein(derSpieler[aktSpieler].gebeWert(), leseX(), leseY());	
@@ -101,9 +99,5 @@ public class SteuerungTicTacToe extends Main.Spielsteuerung {
 		if(dasSpielfeld.pruefeVoll()) {
 			status = 3;
 		}		
-	}
-	protected void gebeSpielfeld() 	{
-		dieOberflaeche.gebeAus(dasSpielfeld.gebeFeld(), derSpieler[0].gebeFigur(), 
-				derSpieler[1].gebeFigur());
 	}
 }

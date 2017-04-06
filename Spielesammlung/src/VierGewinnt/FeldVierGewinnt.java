@@ -3,20 +3,23 @@ package VierGewinnt;
 public class FeldVierGewinnt extends Main.Spielfeld{
 	
 	//Konstruktor
-	public FeldVierGewinnt() {
+	public FeldVierGewinnt() 									{
 		super.feld = new int[8][8];
 		initialisiere();
 	}
 	
 	//Operationen
-	public void initialisiere() {
+	public void initialisiere() 								{
 		for(int x = 0; x < 8; x++) {
 			for(int y = 0; y < 8; y++) {
 				feld[x][y] = 0;
 			}
 		}
 	}
-	public int setzeStein(int wert, int spalte) {
+	public int setzeStein(int wert, int x, int y)				{
+		return 0;
+	}
+	public int setzeStein(int wert, int spalte) 				{
 		//Eingabe Prüfen: Muss zwischen 1 und 8 liegen
 		if(spalte < 1 || spalte > 8) 
 			return 0;
@@ -39,29 +42,23 @@ public class FeldVierGewinnt extends Main.Spielfeld{
 			return 1;		//Wenn Spalte voll ist, dann 1 zurückgeben
 		
 	}
-	public int[][] gebeFeld() {
-		return feld;
-	}
-	public int gebeStelle(int x, int y) {
-		return feld[x][y];
-	}
-	
-	private void setzeFeld(int wert, int spalte) {
-		for(int y = 0; y <= 7; y++) {
-			if(feld[spalte][y] == 0) {
-				feld[spalte][y] = wert;
-				break;
-			}
-		}
-	}
-	public boolean pruefeVoll() {
+	public boolean pruefeVoll() 								{
 		for(int x = 0; x < 8; x++) {
 			if(!pruefeSpalte(x))
 				return false;
 		}
 		return true;
 	}
-	private boolean pruefeSpalte(int spalte) {
+	
+	private void setzeFeld(int wert, int spalte) 				{
+		for(int y = 0; y <= 7; y++) {
+			if(feld[spalte][y] == 0) {
+				feld[spalte][y] = wert;
+				break;
+			}
+		}
+	}	
+	private boolean pruefeSpalte(int spalte) 					{
 		if(feld[spalte][7] != 0)
 			return true;
 		else 

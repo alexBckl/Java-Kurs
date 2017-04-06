@@ -101,9 +101,7 @@ public class SteuerungVierGewinnt extends Main.Spielsteuerung{
 			}
 		}
 	}
-	
-	
-	
+
 	//Annahme der Spalte, in der der Spielstein gesetzt werden soll
 	protected void erwarteEingabe() {
 		dieOberflaeche.gebeAus(derSpieler[aktSpieler].gebeName() + ": ", false);
@@ -139,5 +137,4 @@ public class SteuerungVierGewinnt extends Main.Spielsteuerung{
 			break;
 		}
 	}
-		
-}
+		}

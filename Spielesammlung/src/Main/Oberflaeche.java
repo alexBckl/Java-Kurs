@@ -51,7 +51,7 @@ public class Oberflaeche {
 		return derScanner.nextInt();
 	}
 	public String leseText() {
-		return derScanner.nextLine();
+		return derScanner.next();
 	}
 	
 }
