@@ -14,8 +14,8 @@ public class SteuerungTicTacToe extends Main.Spielsteuerung {
 		//... mit gleichzeitiger Eingabe der Namen
 		dieOberflaeche.gebeAus("TicTacToe", true);
 		dieOberflaeche.gebeAus("Spieler 1: ", false);
-		String name = dieOberflaeche.leseText();
-		super.derSpieler[0] = new Spieler(name, 1, 'X');
+		
+		super.derSpieler[0] = new Spieler(dieOberflaeche.leseText(), 1, 'X');
 		dieOberflaeche.gebeAus("Spieler 2: ", false);
 		super.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');
 		
