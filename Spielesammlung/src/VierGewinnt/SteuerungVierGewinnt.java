@@ -1,25 +1,21 @@
 package VierGewinnt;
+import Main.Oberflaeche;
+import Main.Spieler;
 
-public class Spielsteuerung extends Main.Spielsteuerung{
-	//Attribute
-	private int aktSpieler;
-	private int status;
-	private Oberflaeche dieOberflaeche;
-	private Spielfeld dasSpielfeld;
-	private Spieler[] derSpieler;
-	
+public class SteuerungVierGewinnt extends Main.Spielsteuerung{
 	//Konstruktor
-	public Spielsteuerung(Oberflaeche dieOberflaeche) {
+	public SteuerungVierGewinnt(Oberflaeche dieOberflaeche) {
 		//Instanziierung der Objekte Oberflaeche und Spieler...
-		this.dieOberflaeche = dieOberflaeche;
-		this.dasSpielfeld = new Spielfeld();
-		this.derSpieler = new Spieler[2];
+		super.dieOberflaeche = dieOberflaeche;
+		super.dasSpielfeld = new FeldVierGewinnt();
+		super.derSpieler = new Spieler[2];
 		
 		//... mit gleichzeitiger Eingabe der Namen
+		dieOberflaeche.gebeAus("4-Gewinnt", true);
 		dieOberflaeche.gebeAus("Spieler 1: ", false);
-		this.derSpieler[0] = new Spieler(dieOberflaeche.leseText(), 1, 'X');
+		super.derSpieler[0] = new Spieler(super.dieOberflaeche.leseText(), 1, 'X');
 		dieOberflaeche.gebeAus("Spieler 2: ", false);
-		this.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');
+		super.derSpieler[1] = new Spieler(super.dieOberflaeche.leseText(), -1, 'O');
 		
 		//Status auf 0, damit "Spiel läuft" in spiele() ausgeführt wird
 		status = 0;
@@ -28,34 +24,13 @@ public class Spielsteuerung extends Main.Spielsteuerung{
 	}
 	
 	//Operationen
-	public void spiele() {
-		switch(status) {
-		case 0: 	//Spiel läuft
-			gebeSpielfeld();
-			erwarteEingabe();
-			break;
-		case 1: 	//Spieler 1 gewinnt
-			gebeSpielfeld();
-			dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " hat gewonnen!", false);
-			System.exit(0);
-			break;
-		case 2: 	//Spieler 2 gewinnt
-			gebeSpielfeld();
-			dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " hat gewonnen!", false);
-			System.exit(0);
-			break;
-		case 3:		//Unentschieden
-			break;
-		}
-	}
 	
 	//Überprüfung, ob jemand gewinnt
 	private void pruefeGewonnen() {
 		int pruefsumme = 4 * derSpieler[aktSpieler].gebeWert();
 		int spalte = 0;
 		int reihe = 0;
-		int diagonale1 = 0;
-		int diagonale2 = 0;
+		int diagonale = 0;
 		
 		//Spalten
 		for(int x = 0; x < 8; x++) {
@@ -98,16 +73,39 @@ public class Spielsteuerung extends Main.Spielsteuerung{
 				break;
 			}
 		}
+		//Diagonale "/"
+		for(int y = 0; y < 5; y++) {
+			for(int x = 0; x < 5; x++) {
+				diagonale = 0;
+				diagonale += 	dasSpielfeld.gebeStelle(x, y) + dasSpielfeld.gebeStelle(x+1, y+1) + 
+								dasSpielfeld.gebeStelle(x+2, y+2) + dasSpielfeld.gebeStelle(x+3, y+3);
+				
+				if(diagonale == pruefsumme) {
+					status = aktSpieler + 1;
+					return;
+				}
+			}
+		}
+		
+		//Diagonale "\"
+		for(int y = 0; y < 5; y++) {
+			for(int x = 7; x > 2; x--) {
+				diagonale = 0;
+				diagonale += 	dasSpielfeld.gebeStelle(x, y) + dasSpielfeld.gebeStelle(x-1, y+1) + 
+								dasSpielfeld.gebeStelle(x-2, y+2) + dasSpielfeld.gebeStelle(x-3, y+3);
+				
+				if(diagonale == pruefsumme) {
+					status = aktSpieler + 1;
+					return;
+				}
+			}
+		}
 	}
 	
-	//Ausgabe des Spielfelds
-	private void gebeSpielfeld() {
-		dieOberflaeche.gebeAus(dasSpielfeld.gebeFeld(), derSpieler[0].gebeFigur(), 
-				derSpieler[1].gebeFigur());
-	}
+	
 	
 	//Annahme der Spalte, in der der Spielstein gesetzt werden soll
-	private void erwarteEingabe() {
+	protected void erwarteEingabe() {
 		dieOberflaeche.gebeAus(derSpieler[aktSpieler].gebeName() + ": ", false);
 		int rueckgabe = dasSpielfeld.setzeStein(derSpieler[aktSpieler].gebeWert(), dieOberflaeche.leseZahl());	
 		dieOberflaeche.gebeAus("", true);

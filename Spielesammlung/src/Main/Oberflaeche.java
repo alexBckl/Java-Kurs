@@ -20,8 +20,8 @@ public class Oberflaeche {
 	}
 	public void gebeAus(int[][] feld, char spieler1, char spieler2) {
 		char zeichen = ' ';
-		for(int y = 7; y >= 0; y--){
-			for(int x= 0; x < 8; x++){
+		for(int y = feld.length-1; y >= 0; y--){
+			for(int x= 0; x < feld.length; x++){
 				switch(feld[x][y]) {
 				case 1:
 					zeichen = spieler1;

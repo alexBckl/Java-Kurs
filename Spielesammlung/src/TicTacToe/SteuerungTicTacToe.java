@@ -1,25 +1,23 @@
 package TicTacToe;
+import Main.Oberflaeche;
+import Main.Spieler;
 
-public class Spielsteuerung extends Main.Spielsteuerung {
-	//Attribute
-	private int aktSpieler;
-	private int status;
-	private Oberflaeche dieOberflaeche;
-	private Spielfeld dasSpielfeld;
-	private Spieler[] derSpieler;
+public class SteuerungTicTacToe extends Main.Spielsteuerung {
 		
 	//Konstruktor
-	public Spielsteuerung (Oberflaeche dieOberflaeche) {
+	public SteuerungTicTacToe (Oberflaeche dieOberflaeche) {
 		//Instanziierung der Objekte Oberflaeche und Spieler...
-		this.dieOberflaeche = dieOberflaeche;
-		this.dasSpielfeld = new Spielfeld();
-		this.derSpieler = new Spieler[2];
+		super.dieOberflaeche = dieOberflaeche;
+		super.dasSpielfeld = new FeldTicTacToe();
+		super.derSpieler = new Spieler[2];
 		
 		//... mit gleichzeitiger Eingabe der Namen
+		dieOberflaeche.gebeAus("TicTacToe", true);
 		dieOberflaeche.gebeAus("Spieler 1: ", false);
-		this.derSpieler[0] = new Spieler(dieOberflaeche.leseText(), 1, 'X');
+		String name = dieOberflaeche.leseText();
+		super.derSpieler[0] = new Spieler(name, 1, 'X');
 		dieOberflaeche.gebeAus("Spieler 2: ", false);
-		this.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');
+		super.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');
 		
 		//Status auf 0, damit "Spiel läuft" in spiele() ausgeführt wird
 		status = 0;
@@ -28,51 +26,9 @@ public class Spielsteuerung extends Main.Spielsteuerung {
 	}
 	
 	//Operationen
-	public void spiele()			{
-		switch (status) {
-			case 0: 	//Spiel läuft
-				gebeSpielfeld();
-				erwarteEingabe();
-				break;
-			case 1: 	//Spieler 1 gewinnt
-				gebeSpielfeld();
-				dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " hat gewonnen!", false);
-				System.exit(0);
-				break;
-			case 2: 	//Spieler 2 gewinnt
-				gebeSpielfeld();
-				dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " hat gewonnen!", false);
-				System.exit(0);
-				break;
-			case 3:		//Unentschieden
-				break;
-			case 4:
-			/*	System.out.print("Nochmal spielen?");
-				String zeichen;
-				do{
-					zeichen = sc.next();
-					System.out.println(zeichen);
-				}
-				while(!zeichen.toLowerCase().equals("j") 
-						&& !zeichen.toLowerCase().equals("n"));
-
-				if(zeichen.toLowerCase().equals("j")){
-					System.out.println("Weiter");
-					dasSpielfeld.initialisiere();
-					status = 0;
-				}
-				else{
-					System.out.println("Ende");
-					System.exit(0);
-				}*/
-				break;
-			default:
-				break;
-		}
-		
-	}
 	
-	private void erwarteEingabe()	{
+	
+	protected void erwarteEingabe()	{
 		dieOberflaeche.gebeAus(derSpieler[aktSpieler].gebeName() + " ist am Zug! ", true);
 		int rueckgabe = dasSpielfeld.setzeStein(derSpieler[aktSpieler].gebeWert(), leseX(), leseY());	
 		dieOberflaeche.gebeAus("", true);
@@ -146,7 +102,7 @@ public class Spielsteuerung extends Main.Spielsteuerung {
 			status = 3;
 		}		
 	}
-	private void gebeSpielfeld() 	{
+	protected void gebeSpielfeld() 	{
 		dieOberflaeche.gebeAus(dasSpielfeld.gebeFeld(), derSpieler[0].gebeFigur(), 
 				derSpieler[1].gebeFigur());
 	}

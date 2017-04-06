@@ -1,11 +1,10 @@
 package VierGewinnt;
 
-public class Spielfeld {
-	//Attribute
-	private int[][] feld = new int[8][8];
+public class FeldVierGewinnt extends Main.Spielfeld{
 	
 	//Konstruktor
-	public Spielfeld() {
+	public FeldVierGewinnt() {
+		super.feld = new int[8][8];
 		initialisiere();
 	}
 	
@@ -55,7 +54,7 @@ public class Spielfeld {
 			}
 		}
 	}
-	private boolean pruefeVoll() {
+	public boolean pruefeVoll() {
 		for(int x = 0; x < 8; x++) {
 			if(!pruefeSpalte(x))
 				return false;

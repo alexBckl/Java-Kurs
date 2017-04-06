@@ -1,17 +1,17 @@
 package TicTacToe;
 
-public class Spielfeld {
-	private int[][] feld = new int[3][3];
+public class FeldTicTacToe extends Main.Spielfeld{
 	boolean unmoeglich = true;
 	
-	public Spielfeld(){
+	public FeldTicTacToe(){
+		super.feld = new int[3][3];
 		initialisiere();
 	}
 	
 	public void initialisiere(){
-		for(int i = 0; i < 3; i++){
-			for(int j = 0; j < 3; j++){
-				feld[i][j] = 0;
+		for(int x = 0; x < 3; x++){
+			for(int y = 0; y < 3; y++){
+				super.feld[x][y] = 0;
 			}
 		}
 	}
