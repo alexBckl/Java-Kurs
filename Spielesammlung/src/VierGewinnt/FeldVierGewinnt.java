@@ -5,17 +5,10 @@ public class FeldVierGewinnt extends Main.Spielfeld{
 	//Konstruktor
 	public FeldVierGewinnt() 									{
 		super.feld = new int[8][8];
-		initialisiere();
+		super.initialisiere();
 	}
 	
 	//Operationen
-	public void initialisiere() 								{
-		for(int x = 0; x < 8; x++) {
-			for(int y = 0; y < 8; y++) {
-				feld[x][y] = 0;
-			}
-		}
-	}
 	public int setzeStein(int wert, int x, int y)				{
 		return 0;
 	}

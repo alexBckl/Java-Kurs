@@ -8,9 +8,6 @@ public abstract class Spielsteuerung {
 		protected Spielfeld dasSpielfeld;
 		protected Spieler[] derSpieler;
 		
-		//Konstruktor
-		//public  Spielsteuerung(Oberflaeche dieOberflaeche){}
-		
 		//Operationen
 		public void spiele()			{
 			switch (status) {
@@ -20,35 +17,37 @@ public abstract class Spielsteuerung {
 					break;
 				case 1: 	//Spieler 1 gewinnt
 					gebeSpielfeld();
-					dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " hat gewonnen!", false);
-					System.exit(0);
+					dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " hat gewonnen!", true);
+					status = 4;
 					break;
 				case 2: 	//Spieler 2 gewinnt
 					gebeSpielfeld();
-					dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " hat gewonnen!", false);
-					System.exit(0);
+					dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " hat gewonnen!", true);
+					status = 4;
 					break;
 				case 3:		//Unentschieden
+					gebeSpielfeld();
+					dieOberflaeche.gebeAus("Unentschieden!", true);
+					status = 4;
 					break;
-				case 4:
-				/*	System.out.print("Nochmal spielen?");
+				case 4:		//Fragen, ob nochmal gespielt wird
+					dieOberflaeche.gebeAus("Nochmal spielen? J für ja, N für nein", true);
 					String zeichen;
 					do{
-						zeichen = sc.next();
-						System.out.println(zeichen);
+						zeichen = dieOberflaeche.leseText();
 					}
 					while(!zeichen.toLowerCase().equals("j") 
 							&& !zeichen.toLowerCase().equals("n"));
 
 					if(zeichen.toLowerCase().equals("j")){
-						System.out.println("Weiter");
+						dieOberflaeche.gebeAus("Nochmal!", true);
 						dasSpielfeld.initialisiere();
 						status = 0;
 					}
 					else{
-						System.out.println("Ende");
+						dieOberflaeche.gebeAus("Ende!", true);
 						System.exit(0);
-					}*/
+					}
 					break;
 				default:
 					break;

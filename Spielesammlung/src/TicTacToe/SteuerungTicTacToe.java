@@ -34,7 +34,7 @@ public class SteuerungTicTacToe extends Main.Spielsteuerung {
 		while(rueckgabe == 0 || rueckgabe == 1) {
 			switch(rueckgabe) {
 			case 0:		//Fehlerhafte Eingabe
-				dieOberflaeche.gebeAus("Fehlerhafte Eingabe! Nur Werte zwischen 1 und 8!", true);
+				dieOberflaeche.gebeAus("Fehlerhafte Eingabe! Nur Werte zwischen 1 und 3!", true);
 				gebeSpielfeld();
 				rueckgabe = dasSpielfeld.setzeStein(derSpieler[aktSpieler].gebeWert(), leseX(), leseY());
 				break;

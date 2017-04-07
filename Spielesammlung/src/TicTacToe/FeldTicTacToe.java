@@ -7,17 +7,10 @@ public class FeldTicTacToe extends Main.Spielfeld{
 	//Konstruktor
 	public FeldTicTacToe(){
 		super.feld = new int[3][3];
-		initialisiere();
+		super.initialisiere();
 	}
 	
 	//Operationen
-	public void initialisiere()							{
-		for(int x = 0; x < 3; x++){
-			for(int y = 0; y < 3; y++){
-				super.feld[x][y] = 0;
-			}
-		}
-	}
 	public int setzeStein(int wert, int x, int y)		{
 		//Eingabe Prüfen: Muss zwischen 1 und 8 liegen
 		if(x < 0 || x > 2 || y < 0 || y > 2) 

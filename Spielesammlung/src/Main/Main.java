@@ -14,7 +14,7 @@ public class Main {
 		
 		int auswahl = dieOberflaeche.leseZahl();
 		
-		while(auswahl != 1 && auswahl != 0) {
+		while(auswahl != 1 && auswahl != 2) {
 			dieOberflaeche.gebeAus("Fehlerhafte Eingabe!", true);
 			dieOberflaeche.gebeAus("Eingabe: ", false);
 			auswahl = dieOberflaeche.leseZahl();

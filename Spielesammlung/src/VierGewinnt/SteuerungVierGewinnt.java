@@ -137,4 +137,4 @@ public class SteuerungVierGewinnt extends Main.Spielsteuerung{
 			break;
 		}
 	}
-		}
+}
