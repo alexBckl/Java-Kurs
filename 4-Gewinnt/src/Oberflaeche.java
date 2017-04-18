@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Oberflaeche {
 	//Attribute
-	Scanner derScanner = new Scanner(System.in);
+	private Scanner derScanner = new Scanner(System.in);
 	
 	//Operationen
 	public void gebeAus(int zahl, boolean zeilenumbruch) {

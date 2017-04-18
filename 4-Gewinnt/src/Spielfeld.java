@@ -2,7 +2,7 @@
 public class Spielfeld {
 	//Attribute
 	private int[][] feld = new int[8][8];
-	
+	private int test;
 	//Konstruktor
 	public Spielfeld() {
 		initialisiere();
@@ -57,6 +57,7 @@ public class Spielfeld {
 	private boolean pruefeVoll() {
 		for(int x = 0; x < 8; x++) {
 			if(!pruefeSpalte(x))
+				test++;
 				return false;
 		}
 		return true;
