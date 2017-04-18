@@ -159,12 +159,12 @@ public class Spielsteuerung {
 		
 		switch(zug1) {
 		case 1: // Schere
-			if(zug2 == 3) {			//Spieler 1 Gewinnt
+			if(zug2 == 3) {			//Spieler 1 gewinnt Runde
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " gewinnt die Runde!", true);
 				runden1++;
 			}
-			else if(zug2 == 2) {	//Spieler 2 Gewinnt
+			else if(zug2 == 2) {	//Spieler 2 gewinnt Runde
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " gewinnt die Runde!", true);
 				runden2++;
@@ -175,12 +175,12 @@ public class Spielsteuerung {
 			}
 			break;
 		case 2: //Stein
-			if(zug2 == 1) {			//Spieler 1 Gewinnt
+			if(zug2 == 1) {			//Spieler 1 gewinnt Runde 
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " gewinnt die Runde!", true);
 				runden1++;
 			}
-			else if(zug2 == 3) {	//Spieler 2 Gewinnt
+			else if(zug2 == 3) {	//Spieler 2 gewinnt Runde
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " gewinnt die Runde!", true);
 				runden2++;
@@ -191,12 +191,12 @@ public class Spielsteuerung {
 			}
 			break;
 		case 3: //Papier
-			if(zug2 == 2) {			//Spieler 1 Gewinnt
+			if(zug2 == 2) {			//Spieler 1 gewinnt Runde
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[0].gebeName() + " gewinnt die Runde!", true);
 				runden1++;
 			}
-			else if(zug2 == 1) {	//Spieler 2 Gewinnt
+			else if(zug2 == 1) {	//Spieler 2 gewinnt Runde
 				dieOberflaeche.gebeAus("", true);
 				dieOberflaeche.gebeAus(derSpieler[1].gebeName() + " gewinnt die Runde!", true);
 				runden2++;
