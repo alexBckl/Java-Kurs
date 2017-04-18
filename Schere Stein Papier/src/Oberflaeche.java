@@ -18,6 +18,6 @@ public class Oberflaeche {
 	
 	public String leseText(String text) {
 		System.out.print(text);
-		return derScanner.nextLine();
+		return derScanner.next();
 	}
 }
