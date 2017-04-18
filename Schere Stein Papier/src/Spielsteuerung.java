@@ -3,7 +3,6 @@ public class Spielsteuerung {
 	//Attribute
 	private Oberflaeche dieOberflaeche;
 	private Spieler derSpieler[];
-	private int aktSpieler;
 	private int status;
 	private int zug1;
 	private int zug2;
