@@ -15,6 +15,21 @@ public class Main {
 		
 		//ArrayList
 		ArrayListe dieArrayList = new ArrayListe();
-		dieArrayList.Uebung();
+		//dieArrayList.Uebung();
+		
+		//Überladung
+		Uerberladung dieUberladung = new Uerberladung();
+		//dieUberladung.Uebung();
+		//dieUberladung.Uebung(2);
+		
+		//Vererbung
+		VererbungSuper dieVererbungSuper = new VererbungSuper();
+		VererbungKind dieVererbungKind = new VererbungKind();
+		VererbungKindKind dieVererbungKindKind = new VererbungKindKind();
+		
+		dieVererbungKindKind.setY(50);
+		//System.out.println(dieVererbungSuper.getY());
+		//dieVererbungKind.Uebung();
+		System.out.println(dieVererbungSuper.getY());
 	}
 }
