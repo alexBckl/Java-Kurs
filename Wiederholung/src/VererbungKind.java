@@ -14,6 +14,10 @@ public class VererbungKind extends VererbungSuper {
 		System.out.println("Y: " + super.getY());
 	}
 	
+	public void abstrakteMethode(int parameter){
+		System.out.println("Paramter: " + parameter);
+	}
+	
 	public void setY(int y) {
 		System.out.println("Kind: " + (y+10));
 		super.setY(y + 10);

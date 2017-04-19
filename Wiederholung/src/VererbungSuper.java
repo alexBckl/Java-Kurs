@@ -15,5 +15,10 @@ public class VererbungSuper {
 		return this.y;
 	}
 	
+	//public abstract void test();
 	
+	//public abstract void abstrakteMethode(int parameter);			
+	//Wenn eine Klasse eine abstrakte Methode enthält, muss die komplette Klasse abstrakt sein!
+	//Also public abstract class Klassennamen {...}
+	//Abstrakte Methoden MÜSSEN IMMER von konkreten Methoden überschrieben werden.
 }

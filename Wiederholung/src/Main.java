@@ -26,10 +26,15 @@ public class Main {
 		VererbungSuper dieVererbungSuper = new VererbungSuper();
 		VererbungKind dieVererbungKind = new VererbungKind();
 		VererbungKindKind dieVererbungKindKind = new VererbungKindKind();
-		
-		dieVererbungKindKind.setY(50);
+		//dieVererbungKind.abstrakteMethode(100);
+		//dieVererbungKindKind.setY(50);
+		//dieVererbungSuper.setY(20);
 		//System.out.println(dieVererbungSuper.getY());
 		//dieVererbungKind.Uebung();
-		System.out.println(dieVererbungSuper.getY());
+		//System.out.println(dieVererbungSuper.getY());
+		
+		//Break mit Schleifennamen und Return
+		Break derBreak = new Break();
+		derBreak.Uebung();
 	}
 }
