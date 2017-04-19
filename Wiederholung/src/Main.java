@@ -11,6 +11,10 @@ public class Main {
 		
 		//Array2D
 		Array2D dasArray2D = new Array2D();
-		dasArray2D.Uebung();
+		//dasArray2D.Uebung();
+		
+		//ArrayList
+		ArrayListe dieArrayList = new ArrayListe();
+		dieArrayList.Uebung();
 	}
 }
