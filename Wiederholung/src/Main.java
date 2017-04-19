@@ -35,6 +35,18 @@ public class Main {
 		
 		//Break mit Schleifennamen und Return
 		Break derBreak = new Break();
-		derBreak.Uebung();
+		//derBreak.Uebung();
+		
+		//Zufallszahlen
+		Zufallszahlen dieZufallszahlen = new Zufallszahlen();
+		//dieZufallszahlen.Uebung();
+		
+		//Logik
+		Logik dieLogik = new Logik();
+		//dieLogik.Uebung();
+		
+		//Print Methoden
+		Print derPrint = new Print();
+		derPrint.Uebung();
 	}
 }

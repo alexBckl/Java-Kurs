@@ -5,20 +5,20 @@ public class Spielsteuerung {
 	private int status;
 	private Oberflaeche dieOberflaeche;
 	private Spielfeld dasSpielfeld;
-	private Spieler[] derSpieler;
+	private Spieler[] derSpieler;			//Deklarieren
 	
 	//Konstruktor
 	public Spielsteuerung(Oberflaeche dieOberflaeche) {
 		//Instanziierung der Objekte Oberflaeche und Spieler...
 		this.dieOberflaeche = dieOberflaeche;
 		this.dasSpielfeld = new Spielfeld();
-		this.derSpieler = new Spieler[2];
+		this.derSpieler = new Spieler[2];	//Initialisieren
 		
 		//... mit gleichzeitiger Eingabe der Namen
 		dieOberflaeche.gebeAus("Spieler 1: ", false);
-		this.derSpieler[0] = new Spieler(dieOberflaeche.leseText(), 1, 'X');
+		this.derSpieler[0] = new Spieler(dieOberflaeche.leseText(), 1, 'X');	//Instanziieren
 		dieOberflaeche.gebeAus("Spieler 2: ", false);
-		this.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');
+		this.derSpieler[1] = new Spieler(dieOberflaeche.leseText(), -1, 'O');	//Instanziieren
 		
 		//Status auf 0, damit "Spiel läuft" in spiele() ausgeführt wird
 		status = 0;
