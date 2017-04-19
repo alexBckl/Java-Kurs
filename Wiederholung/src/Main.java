@@ -7,6 +7,10 @@ public class Main {
 		
 		//Arrays
 		Array dasArray = new Array();
-		dasArray.Uebung();
+		//dasArray.Uebung();
+		
+		//Array2D
+		Array2D dasArray2D = new Array2D();
+		dasArray2D.Uebung();
 	}
 }
